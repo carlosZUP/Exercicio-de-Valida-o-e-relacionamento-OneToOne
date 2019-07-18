@@ -1,0 +1,31 @@
+package com.br.zup.relacionavel.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+
+import com.br.zup.relacionavel.services.UsuarioService;
+
+@Controller
+public class RelacionavelController {
+
+	@Autowired
+	public UsuarioService usuarioService;
+	
+	@GetMapping("/")
+	public ModelAndView exibirUsuario() {
+		ModelAndView model = new ModelAndView("usuario.html");
+		model.addObject("usuario", usuarioService.pegarTodosUsuarios());
+		return model;
+	}
+	
+	@PostMapping("/")
+	public ModelAndView salvar
+	
+	
+	
+	
+}

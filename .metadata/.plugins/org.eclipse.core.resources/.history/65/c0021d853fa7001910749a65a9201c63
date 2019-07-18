@@ -1,0 +1,9 @@
+package com.br.zup.relacionavel.repositories;
+
+import org.springframework.stereotype.Repository;
+
+public class UsuarioRepository {
+
+	@Repository
+	public interface Usuario
+}

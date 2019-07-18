@@ -1,0 +1,21 @@
+package com.br.zup.relacionavel.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.br.zup.relacionavel.models.Usuario;
+import com.br.zup.relacionavel.repositories.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+	
+@Autowired
+	private UsuarioRepository usuarioRepository;
+
+	public void cadatrarUsuario(Usuario user) {
+		usuarioRepository.save(user);
+		
+	}
+	
+}

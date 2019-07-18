@@ -1,0 +1,29 @@
+package com.br.zup.relacionavel.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.br.zup.relacionavel.models.Login;
+import com.br.zup.relacionavel.models.Usuario;
+import com.br.zup.relacionavel.repositories.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+	
+@Autowired
+	private UsuarioRepository usuarioRepository;
+@Autowired
+private LoginRepository loginRepository;
+
+
+	public void cadatrarUsuario(Usuario user, Login login) {
+		login.setUsuario(user);
+		loginRepository.save(login);
+	}
+	
+	public Iterable<Usuario> pegarTodosUsuarios() {
+		return usuarioRepository.findAll();
+		
+	}
+	
+}

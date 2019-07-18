@@ -1,0 +1,9 @@
+package com.br.zup.relacionavel.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LoginService {
+	
+	
+}

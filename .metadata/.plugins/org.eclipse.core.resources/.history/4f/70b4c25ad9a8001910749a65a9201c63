@@ -1,0 +1,48 @@
+package com.br.zup.relacionavel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.br.zup.relacionavel.models.Categoria;
+import com.br.zup.relacionavel.services.CategoriaService;
+
+@Controller
+public class CategoriaController {
+	
+	@Autowired
+	private CategoriaService categoriaService;
+	
+	@GetMapping("/categoria")
+	public ModelAndView exibirSCategorias() {
+		ModelAndView model = new ModelAndView(".html");
+		return model;
+		
+	}
+	
+	@PostMapping("/categoria")
+	public ModelAndView cadastrarCategoria( @Valid Categoria categoria, BindingResult bindingResult ) {
+		ModelAndView model = new ModelAndView(".html");
+		
+		if (bindingResult.hasErrors()) {
+			List<String> erros = new ArrayList<String>();
+			for (ObjectError erro : bindingResult.getAllErrors()) {
+				erros.add(erro.getDefaultMessage());
+			}
+			model.addObject("erros", erros);
+			
+		} else {
+		categoriaService.cadastrarCategoria(categoria);
+		}
+		
+	}
+}

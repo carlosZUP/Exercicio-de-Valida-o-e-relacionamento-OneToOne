@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div th:each="msg: ${msgs}">
+    <p>th:text=$</p>
+        <span th:text="${erro}"></span>
+    </div>
+    
+    <form method="POST">
+        Nome: <input type="text" name="nome">
+        E-mail <input type="text" name="email">
+        CPF: <input type="text" name="cpf">
+        Qual sua idade?: <input type="number" name="idade" value="0">
+        <button type="submit">Cadastrar Usuario</button>
+    
+    </form>
+    
+    <div th:each="usuario: ${usuario}">
+        <h3 th:text="${usuario.nome}"></h3>
+        <p th:text="${usuario.email}"></p>
+    
+    </div>
+</body>
+</html>
